@@ -15,7 +15,6 @@ function HomeScreen({ navigation }) {
     { id: '4', title: `Перетягнути об'єкт`, done: false },
     { id: '5', title: 'Свайп вправо', done: false },
     { id: '6', title: 'Свайп вліво', done: false },
-    // { id: '7', title: `Змінити розмір об'єкта`, done: false },
     { id: '8', title: 'Отримати 100 очок', done: false }
   ]);
 
@@ -74,13 +73,6 @@ function HomeScreen({ navigation }) {
     }
   };
 
-  const handlePinch = () => {
-    const newScore = score + 3;
-    setScore(newScore);
-    checkScoreTask(newScore);
-    setTasks(prev => prev.map(t => t.id === '7' ? { ...t, done: true } : t));
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.score}>Очки: {score}</Text>
@@ -110,10 +102,6 @@ function HomeScreen({ navigation }) {
       <FlingGestureHandler direction={Directions.LEFT} onActivated={() => handleFling('left')}>
         <View style={styles.button}><Text>Свайп вліво</Text></View>
       </FlingGestureHandler>
-
-      {/* <PinchGestureHandler onActivated={handlePinch}>
-        <View style={styles.button}><Text>Масштабування</Text></View>
-      </PinchGestureHandler> */}
     </View>
   );
 }
